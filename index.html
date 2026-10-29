@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#201b19" />
+    <meta name="description" content="Lawrence Book Shop — curated books, modern reads, and thoughtful recommendations for every kind of reader." />
+    <title>Lawrence Book Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement-bar">
+      <span>Ghana-wide orders · Prices in Ghana cedis</span>
+      <span class="dot">•</span>
+      <span>Curated stories for minds in motion</span>
+    </div>
+
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="Lawrence Book Shop home">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Lawrence <small>BOOK SHOP</small></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#bestsellers">Bestsellers</a>
+        <a href="#discover">Discover</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <label class="search-box" aria-label="Search books">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M16 16L21 21"></path></svg>
+          <input id="book-search" type="search" placeholder="Search titles, authors..." autocomplete="off" />
+        </label>
+
+        <a class="social-pill" href="mailto:kojon8944@gmail.com" aria-label="Email Lawrence Book Shop">Email</a>
+
+        <button class="cart-button" id="cart-toggle" type="button" aria-label="Open shopping bag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18l-1.5 11.5a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 7Z"></path><path d="M9 7V5.8A3 3 0 0 1 12 3a3 3 0 0 1 3 2.8V7"></path></svg>
+          <span>Bag</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">A smarter way to read</p>
+          <h1>Stories that stick with you.</h1>
+          <p class="hero-text">
+            Lawrence Book Shop brings together soulful fiction, sharp nonfiction, and quietly revolutionary ideas for readers who want more than a shelf full of noise.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#bestsellers">Shop the shelves</a>
+            <a class="button secondary" href="#contact">Talk to us</a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="proof-badge">
+              <strong>34 titles</strong>
+              <span>Across the shelves</span>
+            </div>
+            <div class="proof-badge">
+              <strong>Ghana-wide</strong>
+              <span>Order from anywhere</span>
+            </div>
+            <div class="proof-badge">
+              <strong>Weekly</strong>
+              <span>Fresh picks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Featured book collection illustration">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="book-display">
+            <div class="display-book book-main">
+              <span class="tag">Editor's pick</span>
+              <h3>Atomic Habits</h3>
+              <p>James Clear</p>
+            </div>
+            <div class="display-book book-side">
+              <span class="tag alt">Weekend read</span>
+              <h3>Little Fires Everywhere</h3>
+              <p>Celeste Ng</p>
+            </div>
+            <div class="display-book book-back">
+              <span class="tag alt">More to explore</span>
+              <h3>The Midnight Library</h3>
+              <p>Matt Haig</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-strip" aria-label="Bookshop features">
+        <div>
+          <span class="icon">✦</span>
+          <div><strong>Handpicked</strong><small>Thoughtful recommendations</small></div>
+        </div>
+        <div>
+          <span class="icon">♡</span>
+          <div><strong>Gift-ready</strong><small>Beautifully wrapped</small></div>
+        </div>
+        <div>
+          <span class="icon">⚡</span>
+          <div><strong>Fast dispatch</strong><small>Within 48 hours</small></div>
+        </div>
+      </section>
+
+      <section class="bestseller-section section-shell" aria-label="Featured bestsellers">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">The books everyone is talking about</p>
+            <h2>Featured bestsellers</h2>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" class="carousel-control" id="carousel-prev" aria-label="Previous bestsellers">←</button>
+            <button type="button" class="carousel-control" id="carousel-next" aria-label="Next bestsellers">→</button>
+          </div>
+        </div>
+        <div class="bestseller-carousel" id="bestseller-carousel" aria-live="polite"></div>
+      </section>
+
+      <section class="catalog section-shell" id="bestsellers">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">Curated for curious minds</p>
+            <h2>Reader favorites</h2>
+          </div>
+          <div class="catalog-actions">
+            <label class="sort-control">Sort
+              <select id="book-sort" aria-label="Sort books">
+                <option value="featured">Featured</option>
+                <option value="title-asc">Title: A–Z</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+              </select>
+            </label>
+            <button type="button" class="wishlist-toggle" id="wishlist-toggle" aria-pressed="false">♡ Saved <span id="wishlist-count">0</span></button>
+          </div>
+        </div>
+
+        <div class="filters" aria-label="Filter books by category">
+          <button class="filter-chip active" type="button" data-category="All">All</button>
+          <button class="filter-chip" type="button" data-category="Fiction">Fiction</button>
+          <button class="filter-chip" type="button" data-category="Nonfiction">Nonfiction</button>
+          <button class="filter-chip" type="button" data-category="Fantasy">Fantasy</button>
+          <button class="filter-chip" type="button" data-category="Poetry">Poetry</button>
+          <button class="filter-chip" type="button" data-category="Self-help">Self-help</button>
+          <button class="filter-chip" type="button" data-category="Mystery">Mystery</button>
+          <button class="filter-chip" type="button" data-category="Biography">Biography</button>
+        </div>
+
+        <p class="currency-note">Prices shown in GH₵ are estimates. Confirm final pricing and delivery with us before paying.</p>
+        <p class="search-message" id="search-message" aria-live="polite"></p>
+        <div id="book-grid" class="book-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>No titles match your search yet. Try another keyword or category.</div>
+      </section>
+
+      <section class="discover section-shell" id="discover">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow dark">Beyond the bestsellers</p>
+            <h2>What readers are loving right now</h2>
+          </div>
+        </div>
+
+        <div class="discover-grid">
+          <article class="discover-card feature-card">
+            <span class="tiny-label">New arrivals</span>
+            <h3>Fresh reads for every mood</h3>
+            <p>From quietly profound memoirs to page-turning thrillers, our shelves keep evolving with what readers are recommending.</p>
+          </article>
+
+          <article class="discover-card feature-card">
+            <span class="tiny-label">Book clubs</span>
+            <h3>Recommended for rich conversations</h3>
+            <p>Need a great discussion title? We pick books packed with heart, depth, and just enough complexity to spark a chat.</p>
+          </article>
+
+          <article class="discover-card feature-card">
+            <span class="tiny-label">Thoughtful gifting</span>
+            <h3>Beautiful books for beautiful moments</h3>
+            <p>Celebrate birthdays, graduations, and milestones with a carefully chosen title that feels personal and memorable.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-shell" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow dark">Stay in touch</p>
+            <h2>Find your next favorite with us.</h2>
+          </div>
+
+          <div class="contact-links">
+            <a href="mailto:kojon8944@gmail.com" class="contact-card">
+              <span class="contact-icon">✉</span>
+              <div>
+                <small>Email</small>
+                <strong>kojon8944@gmail.com</strong>
+              </div>
+            </a>
+
+            <a href="https://instagram.com/nanafosu_" target="_blank" rel="noreferrer" class="contact-card">
+              <span class="contact-icon">◎</span>
+              <div>
+                <small>Instagram</small>
+                <strong>@nanafosu_</strong>
+              </div>
+            </a>
+
+            <a href="https://wa.me/233531114197" target="_blank" rel="noreferrer" class="contact-card">
+              <span class="contact-icon">✆</span>
+              <div>
+                <small>WhatsApp</small>
+                <strong>+233 53 111 4197</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter section-shell">
+        <div class="newsletter-copy">
+          <p class="eyebrow dark">Letter from the shop</p>
+          <h2>Weekly picks, thoughtful notes, and new arrivals.</h2>
+        </div>
+
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" placeholder="Your email address" required />
+          <button type="submit">Join the list</button>
+        </form>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <span class="brand-mark mini">L</span>
+        <div>
+          <strong>Lawrence</strong>
+          <small>BOOK SHOP</small>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="mailto:kojon8944@gmail.com">Email</a>
+        <a href="https://instagram.com/nanafosu_" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://wa.me/233531114197" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+
+      <p>Made for readers who love a little more depth.</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="cart-overlay" id="cart-overlay" hidden>
+      <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+          <h2 id="cart-title">Your bag</h2>
+          <button id="cart-close" type="button" aria-label="Close shopping bag">×</button>
+        </div>
+
+        <div id="cart-items" class="cart-items"></div>
+        <p id="cart-empty" class="cart-empty">Your bag is waiting for a good story.</p>
+
+        <div class="cart-summary">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">$0.00</strong>
+        </div>
+
+        <a class="button primary checkout-button" id="checkout-button" href="checkout.html">Continue to checkout</a>
+      </aside>
+    </div>
+  </body>
+</html>

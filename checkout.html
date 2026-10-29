@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#263831">
+    <meta name="description" content="Complete your Lawrence Book Shop order.">
+    <title>Checkout — Lawrence Book Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="checkout.js" defer></script>
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a href="index.html" class="brand" aria-label="Return to Lawrence Book Shop">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Lawrence <small>BOOK SHOP</small></span>
+      </a>
+      <a class="back-link" href="index.html">← Continue browsing</a>
+    </header>
+
+    <main class="checkout-layout">
+      <section class="checkout-main">
+        <p class="eyebrow dark">Almost yours</p>
+        <h1>Checkout</h1>
+        <p class="checkout-intro">Tell us where to deliver your books. We’ll confirm your order and payment details with you on WhatsApp.</p>
+
+        <form id="checkout-form" class="checkout-form">
+          <fieldset>
+            <legend><span>01</span> Contact details</legend>
+            <div class="form-grid">
+              <label>Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+              <label>Phone number<input name="phone" type="tel" autocomplete="tel" required placeholder="+233 20 000 0000"></label>
+              <label class="form-wide">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>02</span> Delivery address</legend>
+            <div class="form-grid">
+              <label class="form-wide">Street address<input name="address" autocomplete="street-address" required placeholder="House number and street"></label>
+              <label>City / town<input name="city" autocomplete="address-level2" required placeholder="Accra"></label>
+              <label>Region
+                <select name="region" autocomplete="address-level1" required>
+                  <option value="">Select a region</option>
+                  <option>Greater Accra</option><option>Ashanti</option><option>Central</option><option>Eastern</option>
+                  <option>Western</option><option>Western North</option><option>Volta</option><option>Oti</option>
+                  <option>Northern</option><option>Savannah</option><option>North East</option><option>Upper East</option>
+                  <option>Upper West</option><option>Bono</option><option>Bono East</option><option>Ahafo</option>
+                </select>
+              </label>
+              <label class="form-wide">Delivery notes <span class="optional">(optional)</span><textarea name="notes" rows="3" placeholder="Landmark, preferred time, or anything else we should know"></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>03</span> Payment preference</legend>
+            <div class="payment-options">
+              <label class="payment-option"><input type="radio" name="payment" value="Mobile Money" checked><span><strong>Mobile Money</strong><small>We’ll message you to confirm payment</small></span></label>
+              <label class="payment-option"><input type="radio" name="payment" value="Cash on delivery"><span><strong>Cash on delivery</strong><small>Pay when your order arrives</small></span></label>
+            </div>
+          </fieldset>
+
+          <button class="button primary place-order" type="submit">Request order via WhatsApp <span aria-hidden="true">→</span></button>
+          <p class="checkout-note">No payment is taken here. The delivery fee is an estimate; confirm the final total and payment with us on WhatsApp.</p>
+          <p id="checkout-message" class="checkout-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="order-panel" aria-labelledby="order-title">
+        <p class="eyebrow dark">Your selection</p>
+        <h2 id="order-title">Order summary</h2>
+        <div id="checkout-items" class="checkout-items"></div>
+        <p id="checkout-empty" class="checkout-empty" hidden>Your bag is empty. Find a book to get started.</p>
+        <div class="order-totals">
+          <div><span>Subtotal</span><strong id="checkout-subtotal">GH₵0.00</strong></div>
+          <div><span>Estimated delivery</span><strong id="checkout-delivery">GH₵0.00</strong></div>
+          <div class="grand-total"><span>Total</span><strong id="checkout-total">GH₵0.00</strong></div>
+        </div>
+        <a class="back-to-shop" href="index.html#bestsellers">← Back to the shelves</a>
+      </aside>
+    </main>
+    <footer class="checkout-footer">Need a hand? <a href="https://wa.me/233531114197" target="_blank" rel="noreferrer">Message Lawrence Book Shop on WhatsApp</a></footer>
+  </body>
+</html>
